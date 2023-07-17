@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <table>
+        <tr>
+          <td id="[0][0]"></td>
+          <td id="[0][1]"></td>
+          <td id="[0][2]"></td>
+          <td id="[0][3]"></td>
+          <td id="[0][4]"></td>
+          <td id="[0][5]"></td>
+          <td id="[0][6]"></td>
+          <td id="[0][7]"></td>
+          <td id="[0][8]"></td>
+        </tr>
+        <tr>
+          <td id="[1][0]"></td>
+          <td id="[1][1]" class="beet">Beet</td>
+          <td id="[1][2]"></td>
+          <td id="[1][3]" class="beet">Beet</td>
+          <td id="[1][4]"></td>
+          <td id="[1][5]" class="beet">Beet</td>
+          <td id="[1][6]"></td>
+          <td id="[1][7]" class="beet">Beet</td>
+          <td id="[1][8]"></td>
+        </tr>
+        <tr>
+          <td id="[2][0]"></td>
+          <td id="[2][1]"></td>
+          <td id="[2][2]"></td>
+          <td id="[2][3]"></td>
+          <td id="[2][4]"></td>
+          <td id="[2][5]"></td>
+          <td id="[2][6]"></td>
+          <td id="[2][7]"></td>
+          <td id="[2][8]"></td>
+        </tr>
+        <tr>
+          <td id="[3][0]"></td>
+          <td id="[3][1]" class="beet">Beet</td>
+          <td id="[3][2]"></td>
+          <td id="[3][3]" class="beet">Beet</td>
+          <td id="[3][4]"></td>
+          <td id="[3][5]" class="beet">Beet</td>
+          <td id="[3][6]"></td>
+          <td id="[3][7]" class="beet">Beet</td>
+          <td id="[3][8]"></td>
+        </tr>
+        <tr>
+          <td id="[4][0]"></td>
+          <td id="[4][1]"></td>
+          <td id="[4][2]"></td>
+          <td id="[4][3]"></td>
+          <td id="[4][4]"></td>
+          <td id="[4][5]"></td>
+          <td id="[4][6]"></td>
+          <td id="[4][7]"></td>
+          <td id="[4][8]"></td>
+        </tr>
+        <tr>
+          <td id="[5][0]"></td>
+          <td id="[5][1]"></td>
+          <td id="[5][2]"></td>
+          <td id="[5][3]"></td>
+          <td id="[5][4]"></td>
+          <td id="[5][5]"></td>
+          <td id="[5][6]"></td>
+          <td id="[5][7]"></td>
+          <td id="[5][8]"></td>
+        </tr>
+        <tr>
+          <td id="[6][0]"></td>
+          <td id="[6][1]"></td>
+          <td id="[6][2]"></td>
+          <td id="[6][3]"></td>
+          <td id="[6][4]"></td>
+          <td id="[6][5]"></td>
+          <td id="[6][6]"></td>
+          <td id="[6][7]"></td>
+          <td id="[6][8]"></td>
+        </tr>
+        <tr>
+          <td id="[7][0]"></td>
+          <td id="[7][1]"></td>
+          <td id="[7][2]"></td>
+          <td id="[7][3]"></td>
+          <td id="[7][4]"></td>
+          <td id="[7][5]"></td>
+          <td id="[7][6]"></td>
+          <td id="[7][7]"></td>
+          <td id="[7][8]"></td>
+        </tr>
+        <tr>
+          <td id="[8][0]"></td>
+          <td id="[8][1]"></td>
+          <td id="[8][2]"></td>
+          <td id="[8][3]"></td>
+          <td id="[8][4]"></td>
+          <td id="[8][5]"></td>
+          <td id="[8][6]"></td>
+          <td id="[8][7]"></td>
+          <td id="[8][8]"></td>
+        </tr>
+    </table>  
+    
+    <script>
+        /*
+        const LEFT = 37;
+        const UP = 38;
+        const RIGHT = 39;
+        const DOWN = 40;
+        */
+
+        const LEFT = 65;
+        const UP = 87;
+        const RIGHT = 68;
+        const DOWN = 83;
+
+        let playerPosition = { row : 0, col : 0 };  
+
+        document.addEventListener("keydown", function(event) {
+            var keyCode = event.keyCode;
+            let newRow = playerPosition.row;
+            let newCol = playerPosition.col;
+
+            if (keyCode === LEFT && newCol > 0) {
+                newCol--;
+            } else if (keyCode === UP && newRow > 0) {
+                newRow--;
+            } else if (keyCode === RIGHT && newCol < 8) {
+                newCol++;
+            } else if (keyCode === DOWN && newRow < 8) {
+                newRow++;
+            }
+
+            const currentCell = document.getElementById(`[${playerPosition.row}][${playerPosition.col}]`);
+            const newCell = document.getElementById(`[${newRow}][${newCol}]`);
+
+            currentCell.classList.remove('player');
+            newCell.classList.add('player');
+
+            playerPosition = { row : newRow, col : newCol };
+        });
+    </script>
+</body>
+</html>
