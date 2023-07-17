@@ -142,6 +142,10 @@
             const currentCell = document.getElementById(`[${playerPosition.row}][${playerPosition.col}]`);
             const newCell = document.getElementById(`[${newRow}][${newCol}]`);
 
+            if(newCell.classList.contains('beet')) {
+                return;
+            }
+
             currentCell.classList.remove('player');
             newCell.classList.add('player');
 
